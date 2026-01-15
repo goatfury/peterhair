@@ -5,8 +5,7 @@ This repo captures a daily screenshot from the latest upload on a specific YouTu
 ## What it does
 
 - Fetches the latest video from the channel RSS feed.
-- Downloads the video with `yt-dlp`.
-- Extracts a single frame at `00:00:12` with `ffmpeg`.
+- Downloads the video thumbnail image.
 - Saves the frame to:
   - `output/latest.jpg`
   - `output/YYYY-MM-DD.jpg`
@@ -14,15 +13,8 @@ This repo captures a daily screenshot from the latest upload on a specific YouTu
 ## Run locally
 
 ```bash
-pip install -r requirements.txt
 python scripts/daily_youtube_screenshot.py
 ```
-
-> **Note:** You need `ffmpeg` installed and available on your PATH.
-
-## Customize the timestamp
-
-Edit the `TIMESTAMP` constant in `scripts/daily_youtube_screenshot.py` to the `HH:MM:SS` value you want (e.g. `00:00:05`).
 
 ## Customize the schedule
 
@@ -30,4 +22,4 @@ The GitHub Actions schedule lives in `.github/workflows/daily-youtube-screenshot
 
 ## GitHub Actions
 
-The workflow is set up to run daily and via manual `workflow_dispatch`. It installs `ffmpeg`, installs Python dependencies, runs the capture script, and commits any new screenshot files back to the repo.
+The workflow is set up to run daily and via manual `workflow_dispatch`. It runs the capture script and commits any new screenshot files back to the repo.
